@@ -24,7 +24,7 @@ const myServer = http.createServer((req, res)=>{
             break
         case '/about':
             const query = myUrl.query.name;
-            res.end(`Hello ${query}`)
+            res.end(`Hello ${query}`)  
             break
         case '/contact':
             res.end("Contact here: +8804323432343")

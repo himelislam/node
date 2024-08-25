@@ -1,89 +1,32 @@
-1724578571653: New Entry added1724578626847: New Entry added1724578626967: New Entry added1724578648496: New Entry added1724578648601: New Entry added1724578664951: New Entry added
-1724578665066: New Entry added
-1724578669575: New Entry added
-1724578669650: New Entry added
-1724578672867: New Entry added
-1724578672960: New Entry added
-1724578673432: New Entry added
-1724578673532: New Entry added
-1724578821343: New Entry added
-1724578821450: New Entry added
-1724578893419: New Entry added
-1724578932460: New Entry added
-1724578932582: New Entry added
-1724578965506: New Entry added
-1724578965562: New Entry added
-1724578976504: New Entry added, Host: localhost:8000
-1724578976551: New Entry added, Host: localhost:8000
-1724580077398: New Entry added, Host: localhost:8000
-1724580077489: New Entry added, Host: localhost:8000
-1724580136151: New Entry added
+TIME:1724582133329: New Entry added
 Host: localhost:8000
-Path: undefined
-1724580136285: New Entry added
-Host: localhost:8000
-Path: undefined
-1724580139532: New Entry added
-Host: localhost:8000
-Path: undefined
-1724580139578: New Entry added
-Host: localhost:8000
-Path: undefined
-1724580168748: New Entry added
-Host: localhost:8000
-Path: /hello
-1724580168811: New Entry added
-Host: localhost:8000
-Path: /favicon.ico
-1724580170702: New Entry added
-Host: localhost:8000
-Path: /helloqwe
-1724580170746: New Entry added
-Host: localhost:8000
-Path: /favicon.ico
-1724580174557: New Entry added
-Host: localhost:8000
-Path: /
-1724580174609: New Entry added
-Host: localhost:8000
-Path: /favicon.ico
-1724580511178: New Entry added
-Host: localhost:8000
-Path: /
-1724580511237: New Entry added
-Host: localhost:8000
-Path: /favicon.ico
-1724580515558: New Entry added
-Host: localhost:8000
-Path: /about
-1724580515626: New Entry added
-Host: localhost:8000
-Path: /favicon.ico
-1724580520231: New Entry added
-Host: localhost:8000
-Path: /contact
-1724580520272: New Entry added
-Host: localhost:8000
-Path: /favicon.ico
-1724580523855: New Entry added
-Host: localhost:8000
-Path: /asdfasd
-1724580523901: New Entry added
-Host: localhost:8000
-Path: /favicon.ico
-TIME:1724580577934: New Entry added
-Host: localhost:8000
-Path: /asdfasd
+Path: /about?name=Himel
 
-TIME:1724580577988: New Entry added
+TIME:1724582358829: New Entry added
 Host: localhost:8000
-Path: /favicon.ico
+Path: /about?name=Himel
 
-TIME:1724580581127: New Entry added
+TIME:1724582385737: New Entry added
 Host: localhost:8000
-Path: /about
+Path: /about?name=Himel
 
-TIME:1724580581189: New Entry added
+TIME:1724583667730: New Entry added
 Host: localhost:8000
-Path: /favicon.ico
+Path: /about?name=Himel
+
+TIME:1724583683123: New Entry added
+Host: localhost:8000
+Path: /about?name=Himel&cart=3
+
+TIME:1724583863723: New Entry added
+Host: localhost:8000
+Path: /about?name=Himel&cart=3
+
+TIME:1724583867700: New Entry added
+Host: localhost:8000
+Path: /about?name=jhon&cart=3
+
+TIME:1724583871595: New Entry added
+Host: localhost:8000
+Path: /about?name=Khela&cart=3
 

@@ -1,0 +1,6 @@
+GET users -> get all user
+GET users/1 -> get user by ID
+
+POST users -> create a user
+PUT users/1 -> update a user
+DELTE users/1 -> delete a user

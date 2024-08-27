@@ -1,5 +1,6 @@
 const express = require("express");
 const users = require("./MOCK_DATA.json")
+const fs = require("fs");
 const app = express();
 const PORT = 8000;
 
@@ -72,9 +73,16 @@ app.route('/api/users/:id')
 app.post('/api/users', (req, res)=> {
     const user = req.body;
     console.log(user, "check");
-    users.push(user);
 
-    res.status(200).json({message: 'user added'})
+    users.push({id: users.length + 1, ...user });
+    fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err, data)=>{
+        if(err){
+            console.log(err, "user not added");
+        }
+        return res.status(200).json({message: 'user added', id: users.length});
+    })
+
+
 })
 
 // app.put('/api/users/:id', (req, res)=>{

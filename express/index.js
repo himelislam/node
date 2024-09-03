@@ -21,6 +21,7 @@ app.get("/", (req, res) => {
 })
 
 app.get('/api/users', (req, res) => {
+    users.sort();
     res.send(users);
 })
 
@@ -45,27 +46,78 @@ app.route('/api/users/:id')
     const user = users.find(user => user.id === id)
     res.send(user);
 })
-.put((req, res)=>{
+.patch((req, res)=>{
     const updatedUserInfo = req.body;
     const id = Number(req.params.id);
-    const userIndex = users.find(user => user.id === id);
+    const userIndex = users.findIndex(user => user.id === id);
 
     if(userIndex !== -1){
         users[userIndex] = {...users[userIndex], ...updatedUserInfo}
 
-        res.status(200).json(users[userIndex])
+        fs.readFile("./MOCK_DATA.json", 'utf-8', (err, data)=>{
+            if(err){
+                console.error("error from patch");
+                return res.send("Internal server error")
+            }
+            try {
+                const usersFile = JSON.parse(data);
+                const userFileIndex = usersFile.findIndex(user => user.id === id);
+
+                if(userFileIndex !== -1){
+                    usersFile[userFileIndex] = {...usersFile[userFileIndex],...updatedUserInfo};
+
+                    fs.writeFile("./MOCK_DATA.json", JSON.stringify(usersFile), 'utf-8', (err)=>{
+                        if(err){
+                            console.error("Internal server error")
+                            return res.send("Internal server error")
+                        }
+
+                        return res.status(200).json(users[userIndex]);
+                    })
+                }
+
+            } catch (error) {
+                console.error("Inter Server Parse error");
+                return res.send("Internal server error")
+            }
+        })
     }else{
-        res.send(200).json({message: "user not found"})
+        return res.status(200).json({message: "user not found"})
     }
 })
 .delete((req, res)=> {
     const id = Number(req.params.id);
     const IndexToRemove = users.findIndex(user => user.id === id)
-    if(IndexToRemove != -1){
+    if(IndexToRemove !== -1){
         users.splice(IndexToRemove, 1);
-        res.sendStatus(200).json({message: "user removed"})
+        fs.readFile("./MOCK_DATA.json", 'utf-8', (err, data)=>{
+            if(err){
+                console.error("Internal server error")
+                return res.send("Internal Server Error")
+            }
+            try {
+                const usersFile = JSON.parse(data);
+                const IndexToRemoveFile = usersFile.findIndex(user => user.id === id);
+
+                if(IndexToRemoveFile != -1){
+                    usersFile.splice(IndexToRemoveFile, 1);
+
+                    fs.writeFile("./MOCK_DATA.json", JSON.stringify(usersFile), 'utf-8', (err)=>{
+                        if(err){
+                            console.error("Internal server error")
+                            return res.send("Internal Server Error")
+                        }
+
+                        return res.status(200).json({message: "user removed"})
+                    })
+                }
+            } catch (error) {
+                console.error("Internal server parse error")
+                return res.send("Internal Server parse Error")
+            }
+        })
     }else{
-        res.sendStatus(200).json({message: "user not found"})
+        res.status(200).json({message: "user not found"})
     }
 })
 

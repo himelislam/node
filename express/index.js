@@ -6,6 +6,16 @@ const PORT = 8000;
 
 app.use(express.json());
 
+// middleware for log
+app.use((req, res, next)=>{
+    fs.appendFile('./log.txt', `${Date.now()}: ${req.method} ${req.path}\n`,(err)=>{
+        if(err){
+            console.error(err);
+        }
+        next();
+    })
+})
+
 app.get("/", (req, res) => {
     const html = `
         <style>
@@ -124,8 +134,6 @@ app.route('/api/users/:id')
 
 app.post('/api/users', (req, res)=> {
     const user = req.body;
-    console.log(user, "check");
-
     users.push({id: users.length + 1, ...user });
     fs.writeFile("./MOCK_DATA.json", JSON.stringify(users), (err, data)=>{
         if(err){
